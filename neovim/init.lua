@@ -24,6 +24,7 @@ require('packer').startup(function(use)
     use 'projekt0n/github-nvim-theme'              -- GitHub theme
     use 'catppuccin/nvim'                          -- Catppuccin theme
     use 'dracula/vim'                              -- Dracula theme
+    use "ellisonleao/gruvbox.nvim"                 -- Gruvbox theme
 
     use 'kyazdani42/nvim-tree.lua'                 -- File explorer
     use 'preservim/nerdtree'                       -- NERDTree file explorer
@@ -41,7 +42,7 @@ require('packer').startup(function(use)
 end)
 
 -- Basic Neovim settings
-vim.opt.background = "dark"
+-- vim.opt.background = "dark"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.expandtab = true
@@ -62,7 +63,8 @@ local function set_colorscheme(name)
 end
 
 -- Change colorscheme here
-set_colorscheme('dracula')
+-- set_colorscheme('gruvbox')
+vim.cmd('colorscheme gruvbox')
 
 -- Function to enable transparency
 local function enable_transparency()
@@ -70,6 +72,5 @@ local function enable_transparency()
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 end
 
-enable_transparency()
-
--- set_colorscheme('dracula')
+-- enable_transparency()
+vim.keymap.set('n', '<leader>nf', ':NERDTreeFocus<CR>', { desc = 'Focus NERDTree' })
